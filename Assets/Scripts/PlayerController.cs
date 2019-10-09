@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
     public Text winText;
     private Rigidbody rb;
     private int count;
+    public Text counterText;
+    public float seconds, minutes;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+        counterText = counterText.GetComponent<Text>() as Text;
         SetCountText();
         winText.text = "";
     }
@@ -40,6 +43,24 @@ public class PlayerController : MonoBehaviour
             count += 1;
             SetCountText();
         }
+    }
+
+    void Update()
+    {
+        minutes = (int)(Time.time / 60f);
+        seconds = (int)(Time.time % 60f);
+        counterText.text = "Time: " + minutes.ToString("00") + " : " + seconds.ToString("00");
+
+/*        if (count >= 8)
+        {
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0.0f;
+            else
+                Time.timeScale = 1.0f;
+
+            Time.fixedDeltaTime = 0.00f * Time.timeScale;
+        }
+*/
     }
 
     void SetCountText ()

@@ -20,6 +20,6 @@ public class Timer : MonoBehaviour
     {
         minutes = (int)(Time.time / 60f);
         seconds = (int)(Time.time % 60f);
-        counterText.text = "Time: " + minutes.ToString("00") + ":" + seconds.ToString("00");
+        counterText.text = "Time: " + minutes.ToString("00") + " : " + seconds.ToString("00");
     }
 }
